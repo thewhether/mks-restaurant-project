@@ -1,40 +1,178 @@
-/* Styles */
+/* ---------------------------------------------- */
+/* Styles --------------------------------------- */
+/* ---------------------------------------------- */
 
 body {
     margin: 0;
+    font-family: 'Bitter', 'Georgia', 'Times New Roman', serif; /* Google Font */
+    font-size: 100%;
 }
 
-/* Header */
+div, h1, h2, h3, h4, h5, h6, p, ul, ol, a {
+    font-family: 'Bitter', 'Georgia', 'Times New Roman', serif; /* Google Font */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #fffdf0;
+}
+
+/* ---------------------------------------------- */
+/* Header --------------------------------------- */
+/* ---------------------------------------------- */
+
 header {}
 
-header .logo {
-    // position: absolute;
-    // top: 50%;
-    // left: 35%;
-    color: white;
+header h1 {
+    font-size: 4.5em; /* make it larger than Foundation's default */
+    text-shadow: 0 1px 1px rgba(34, 28, 18,.75);
+}
+
+header .tagline h4 {
+    font-style: italic !important; /* to override Foundation's font-style: normal on all headers */
+    text-shadow: 0 1px 1px rgba(34, 28, 18,.75);
+}
+
+header .tagline {
     text-align: center;
-    border: 1px solid red;
+    background: rgba(34, 28, 18,.5);
+    width: 100%;
+    padding: 2em 0;
+    position: absolute;
+    top: 35%;
+    left: 0;
     z-index: 1000; /* be on a higher z-index than the slideshow */
 }
 
-/* Sections */
+
+
+
+/* ---------------------------------------------- */
+/* Sections Global Styles ----------------------- */
+/* ---------------------------------------------- */
+
 section {
     padding: 2em;
     background: #ccc;
 }
 
-/* Address, Hours, Directions */
-.address {
-    background: #fffdf0;
-}
 
-/* Menu */
-.menu {
+/* ---------------------------------------------- */
+/* Address, Hours, Directions ------------------- */
+/* ---------------------------------------------- */
+
+.address {
     background: #221c12;
     color: #fffdf0;
+    line-height: 1.5em;
+    text-align: center;
 }
 
-/* Social Media/Contact */
-.contact {
+.location,
+.hours {
+    margin-top: 6em;
+}
+
+.hours-label { font-weight: bold; }
+.hours-value { font-style: italic; }
+
+
+
+/* ---------------------------------------------- */
+/* Menu ----------------------------------------- */
+/* ---------------------------------------------- */
+
+.menu {
+    color: #221c12;
     background: #fffdf0;
+    padding-bottom: 2em;
+}
+
+.menu h2 {
+    font-size: 4em;
+    padding-bottom: .5em;
+}
+
+.menu h2, .menu h3, .menu h4 {
+    color: #221c12;
+}
+
+.menu h2 {
+    text-align: center;
+}
+
+.menu-section {
+    text-align: center;
+}
+
+.menu-section h3 a {
+    color: rgba(34, 28, 18, .75);
+    border-bottom: 3px solid transparent;
+    padding-bottom: 5px;
+    -webkit-transition: 1s all ease;
+    transition: 1s all ease;
+}
+
+.menu-section h3 a:hover {
+    color: #221c12;
+    border-bottom: 3px solid #221c12;
+}
+
+.menu-section.is-active h3 a {
+    color: #221c12;
+    border-bottom: 3px solid #221c12;
+}
+
+
+.menu-section-content {
+    margin-top: 2em;
+}
+
+.menu-section-content.is-active {}
+
+.menu-item {
+    margin-bottom: 1.5em;
+    line-height: 1.25em;
+}
+
+.menu-item-name {
+    font-weight: bold;
+}
+
+.menu-item-description {
+    font-style: italic;
+    display: inline;
+    margin: 0;
+}
+
+.menu-item-price {
+    display: inline;
+    padding-left: 10px;
+    font-weight: bold;
+    color: rgba(255, 253, 240,.5);
+}
+
+
+/* ---------------------------------------------- */
+/* Social Media/Contact ------------------------- */
+/* ---------------------------------------------- */
+
+.contact {
+    background: #221c12 url('../images/symbols-bottom.png') no-repeat 0 -160%;
+    padding-top: 20em;
+    padding-bottom: 10em;
+}
+
+.contact h5 {
+    margin-bottom: 1em;
+}
+
+.social-links a {
+    display: inline-block;
+    padding-right: 20px;
+    opacity: .5;
+    -webkit-transition: 1s opacity ease;
+    transition: 1s opacity ease;
+}
+.social-links a:hover {
+    opacity: 1;
 }
