@@ -1,0 +1,40 @@
+/* Styles */
+
+body {
+    margin: 0;
+}
+
+/* Header */
+header {}
+
+header .logo {
+    // position: absolute;
+    // top: 50%;
+    // left: 35%;
+    color: white;
+    text-align: center;
+    border: 1px solid red;
+    z-index: 1000; /* be on a higher z-index than the slideshow */
+}
+
+/* Sections */
+section {
+    padding: 2em;
+    background: #ccc;
+}
+
+/* Address, Hours, Directions */
+.address {
+    background: #fffdf0;
+}
+
+/* Menu */
+.menu {
+    background: #221c12;
+    color: #fffdf0;
+}
+
+/* Social Media/Contact */
+.contact {
+    background: #fffdf0;
+}
