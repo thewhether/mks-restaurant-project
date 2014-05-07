@@ -46,6 +46,7 @@ header .tagline {
 
 
 
+
 /* ---------------------------------------------- */
 /* Sections Global Styles ----------------------- */
 /* ---------------------------------------------- */
@@ -176,4 +177,29 @@ section {
 }
 .social-links a:hover {
     opacity: 1;
+}
+
+
+/* ---------------------------------------------- */
+/* Responsive Styles ---------------------------- */
+/* ---------------------------------------------- */
+
+
+@media (min-width: 0) and (max-width: 599px) {
+    header .tagline {
+        position: static;
+    }
+    .contact {
+        background-position: 0 -62%
+    }
+}
+
+@media (min-width: 600px) {
+    header .tagline {
+        top: 15%;
+    }
+    .contact {
+        background-position: 0 -100%
+    }
+
 }
