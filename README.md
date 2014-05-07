@@ -38,9 +38,13 @@ Everywhere there is something you need to do, there is a TODO comment for you to
 
 4. Style the sections with typography, colors, links, etc.
 
-In `application.css`, write CSS to give the different page sections the appropriate background colors, fonts, etc. 
+Add the Google Font "Bitter" in your `index.html` and then in your CSS.
 
-5. Download and install Slides.js into your JS folder: http://www.slidesjs.com/
+In `application.css`, write CSS to give the different page sections the appropriate background colors, fonts, etc. Be sure you have done the HTML first!
+
+5. Make the slideshow work.
+
+Download and install Slides.js into your JS folder: http://www.slidesjs.com/
 
 In your `index.html`, jQuery is already linked, and now we need to link to the slides.js file with a script tag.
 
@@ -48,14 +52,12 @@ Now look at the Slides.js site to see how to use it: http://slidesjs.com/ You'll
 
 We want it to:
 * play automatically with the effect fade and an interval of 7000
-* have pagination: false (not show the pagintion numbers)
+* have pagination: false (not show the pagination numbers)
 * have the navigation use the fade effect
 
 The CSS for the slideshow is already linked in `index.html` for you; just make the JS work.
 
-6. Style the menu section typography.
-
 Next class, more details TBD:
 
-7. Add the menu items via a JSON feed.
-8. Write JS to make the menu sections show/hide on click.
+6. Add the menu items via a JSON feed.
+7. Write JS to make the menu sections show/hide on click.
