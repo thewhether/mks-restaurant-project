@@ -30,6 +30,8 @@ $(document).ready(function() {
      *          1. Iterate through the array of sections and create the HTML string per section
      *          2. Within each section, iterate through each piece of menu info and create the HTML string.
      *      4. Take the finalized HTML string and populate the menu section of the site.
+     * NOTE: The steps above are for an overview. Code the functions below in the order above. Use the @TODO's below to know what to code. 
+     * NOTE2: Notice the HTML changes necessary to make this work properly. Certain classes and ID's were added to the HTML to make this work.
     */
 
         /*
@@ -166,6 +168,13 @@ $(document).ready(function() {
      * @description This function will run when site loads to get dinner information first.
     */
     var init = function() {
+
+        /*
+         * @TODO Extension: Use JavaScript's Date function to get the time of day, and based on that, 
+         *                  make the init run breakfast, lunch, or dinner accordingly.
+         *                  i.e. if it's before 3am-11am, do "breakfast", between 11-5 'lunch', 6-3am 'dinner'.
+        */
+
         getMenu('dinner');
         $(".menu-action").removeClass('is-active');
         $("#menu-action-dinner").addClass('is-active');
