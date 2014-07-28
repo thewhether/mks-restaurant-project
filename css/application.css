@@ -117,6 +117,10 @@ section {
 /* TODO style the menu-item-price to be bold, 50% opacity, in line with the description but have some space to the left of it. */
 
 
+.menu-item-name-no-description {
+    display:inline;
+}
+
 /* ---------------------------------------------- */
 /* Social Media/Contact ------------------------- */
 /* ---------------------------------------------- */
