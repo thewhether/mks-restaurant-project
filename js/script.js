@@ -1,177 +1,93 @@
-$(document).ready(function() {
+$(function() {
 
-    /*
-     * Image Slider
-    */
-    $('#slides').slidesjs({
-        navigation: {
-            effect: "fade"
-        },
-        pagination: {
-            active: false
-        },
-        play: {
-            active: false,
-            auto: true,
-            interval: 7000,
-            swap: true,
-            effect: "fade"
-        }
+    // TODO #1 Set an event listener to listen for clicks on each menu section
+    // heading anchor
+
+    // Note: my menu section headings look like this:
+    //
+    // <div class="menu-section">
+    //   <h3>
+    //     <a href="#" class="menu-section-item" id="dinner">
+    //       Dinner
+    //     </a>
+    //   </h3>
+    //   ...
+
+    // I've given all of the anchors the same class so that I can easily target
+    // all of them with jQuery
+
+    $( document ).on( 'click', '.menu-section-item', function( event ) {
+      // Prevent the default action of the event
+      event.preventDefault();
+
+      // Assign the id of the clicked element to a variable named id
+      var id = $( this ).attr( 'id' );
+
+      // Remove the class 'is-active' from all menu item headings
+      $( '.menu-section-item' ).removeClass( 'is-active' );
+
+      // Add 'is-active' to this specific action that was clicked. is-active
+      // provides the visual cue for what's active via CSS
+      $( this ).addClass( 'is-active' );
+
+      // Once you're started with TODO #2, call the getMenu function here,
+      // passing id as the argument
+      getMenu( id );
     });
 
-    /*
-     * @name Menu
-     * @description The goal of this section to get the menu information from the JSON.
-     *              Go to http://mksrestaurantapi.herokuapp.com/menu-dinner.json to see an example of what the JSON looks like.
-     * @steps
-     *      1. Get the event information from a click handler.
-     *      2. Use that event info to get the JSON from the API.
-     *      3. Iterate through the array in 2 steps:
-     *          1. Iterate through the array of sections and create the HTML string per section
-     *          2. Within each section, iterate through each piece of menu info and create the HTML string.
-     *      4. Take the finalized HTML string and populate the menu section of the site.
-    */
 
-        /*
-         * @name populateMenu
-         * @description Populate individual items of the menu
-        */
-        
-        var populatePieces = function(json) {
 
-            // Create empty string variable
-            var html = "";
+    // TODO #2 Create a function, getMenu, to get the menu for a course
 
-            // Iterate through array that was passed through the parameter 
-            for(var x=0;x<json.length; x++){
-                
-                /*
-                 * Create HTML string based on the original HTML. Final sting should look like this:
-                 *       <div class="menu-item">
-                 *            <div class="menu-item-name">malpeque oyster</div>
-                 *            <p class="menu-item-description">prince edward island, canada</p>
-                 *            <div class="menu-item-price">3</div>
-                 *       </div>
-                */
+    // There are menus available for each course:
+    // - http://mksrestaurantapi.herokuapp.com/menu-breakfast.json
+    // - http://mksrestaurantapi.herokuapp.com/menu-lunch.json
+    // - http://mksrestaurantapi.herokuapp.com/menu-dinner.json
+    // - http://mksrestaurantapi.herokuapp.com/menu-dessert.json
+    // - http://mksrestaurantapi.herokuapp.com/menu-cocktails.json
+    // - http://mksrestaurantapi.herokuapp.com/menu-wine.json
 
-                /*
-                 * Extension: Notice how on wine, there are undefined ingredients
-                 *            Goal: Check if the ingredient section exists. 
-                 *                   If it doesn't, remove the ingredients section and 
-                 *                   add a new CSS class to the menu item name to make the price 
-                 *                   show up next to it.
-                */
+    // By setting a parameter of `course`, we can pass the course we want the
+    // menu for into this function
 
-                if(json[x].ingredients) {
-                    html = html + '<div class="menu-item"><div class="menu-item-name">' + json[x].dish + '</div>';
-                    html = html + '<p class="menu-item-description">' + json[x].ingredients + '</p>';               
-                    html = html + '<div class="menu-item-price">'+ json[x].price +'</div></div>'
-                } else {
-                    html = html + '<div class="menu-item"><div class="menu-item-name menu-item-name-no-description">' + json[x].dish + '</div>';
-                    html = html + '<div class="menu-item-price">'+ json[x].price +'</div></div>'
-                }
-            }
+    function getMenu( course ) {
+      // Use `$.getJSON` to get the menu for whatever menu heading was clicked
+      $.getJSON( 'http://mksrestaurantapi.herokuapp.com/menu-' + course + '.json', function( json ) {
+        populateMenu( json );
+        // Once you're started with TODO #3, call the populateMenu function here
+        // and pass json as the argument
+      });
+    }
 
-            // Return the created string
-            return html;
 
-        };
 
-        /*
-         * @name populateSections
-         * @description Populate sections of the menu and add that to the HTML.
-        */
+    // TODO #3 Create a function, populateMenu, to add a menu to the DOM
 
-        var populateSections = function(json) {
+    function populateMenu( json ) {
+      html = '';
 
-            // Create empty string variable
-            var html = "";
+      for( var i = 0; i < json.length; i++ ){
+        html += '<div class="menu-group columns small-12 medium-4">';
+        html += '<h4>' + json[i].section + '</h4>';
 
-            /*
-             *  Create HTML string based on the original HTML. 
-             *       YOU WILL NEED TO PASS populatePieces() into this loop in order to get the string for the individual pieces.
-             *  
-             *  Final sting should look like this:
-             *  <div id="menu-section-content" class="menu-section-content menu-dinner is-active">
-             *        <div class="menu-group columns small-12 medium-4">
-             *            <h4>Raw Bar</h4>
-             *               ...
-             *        </div>
-             *         ...
-             *  </div>
-            */
+        for( var j = 0; j < json[i].content.length; j++ ) {
+          html += '<div class="menu-item">';
+          html += '<div class="menu-item-dish">' + json[i].content[j].dish + '</div>';
+          html += '<p class="menu-item-ingredients">' + json[i].content[j].ingredients + '</p>';
+          html += '<div class="menu-item-price">' + json[i].content[j].price + '</div>';
+          html += '</div>';
+        }
 
-            // Iterate through array that was passed through the parameter and create the HTML string
-            for(var x=0; x<json.length; x++){
-                html = html + '<div class="menu-group columns small-12 medium-4"><h4>'+json[x].section+'</h4>'
-                html = html + populatePieces(json[x].content);
-                html = html + '</div>'
-            }
+        html += '</div>';
+      }
 
-            // Use a jQuery function to insert the HTML string into the menu section content area
-            $("#menu-section-content").html(html);
+      // Use `.html` to replace the contents of `.menu-section-content`
+      $( '.menu-section-content' ).html( html );
+    }
 
-        };
 
-        /*
-         * @name getMenu
-         * @description Get menu items from the API.
-         * @param course - this parameter is used to get the specific course section, ie 'breakfast', 'lunch', 'wine'
-        */
 
-        var getMenu = function(course) {
-
-            /*
-             * @TODO Extension: Replace $.getJSON() with $.ajax(). If done properly, you will have made your first AJAX command!
-            *                   Google 'jQuery json' to learn more about how to use it.
-            */
-
-            // Get the JSON from the API.
-            $.getJSON('http://mksrestaurantapi.herokuapp.com/menu-' + course +'.json' , function(json) {
-                
-                // Once that happens, run populateSections() and pass in the JSON.
-                populateSections(json);
-
-            });
-
-        };
-
-        /*
-         * @name Event Handler
-         * @description This event handler will pick up event information from the menu actions. Use this to pass the course to getMenu.
-        */
-
-        // Create an event handler to get event information for menu actions
-        $(".menu-action").on('click', function(){       
-
-            // Get the id attribute from what was clicked.
-            var id = $(this).attr('id');
-            // Console.log id. Notice how the end of the ID has 'breakfast','lunch', etc. 
-
-            // This action will save the ending of the id to back into id, so now id only equals 'breakfast','lunch',etc
-            id = id.substring(12,id.length);
-
-            // Pass the id into getMenu() to begin the process of getting the JSON and populating the data
-            getMenu(id);
-
-            // Remove the class 'is-active' from all menu actions
-            $(".menu-action").removeClass('is-active');
-            // Add 'is-active' to this specific action that was clicked. 'is-active provides the visual cue for what's active via CSS
-            $(this).addClass('is-active');
-
-        });
-
-    /*
-     * @name init
-     * @description This function will run when site loads to get dinner information first.
-    */
-    var init = function() {
-        getMenu('dinner');
-        $(".menu-action").removeClass('is-active');
-        $("#menu-action-dinner").addClass('is-active');
-    };
-
-    // Run init() to make whatever happens in init run.
-    init();
+    // TODO #4 Call getMenu with a menu of your choice and set that menu's
+    // header to active so that a menu is loaded with the page by default
 
 });
