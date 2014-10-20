@@ -35,16 +35,16 @@
             </div>
 
             <div id="slides">
-                <img src="images/chavez-1.jpg" alt="">
-                <img src="images/chavez-2.jpg" alt="">
-                <img src="images/chavez-3.jpg" alt="">
-                <img src="images/chavez-4.jpg" alt="">
-                <img src="images/chavez-5.jpg" alt="">
-                <img src="images/chavez-6.jpg" alt="">
-                <img src="images/chavez-7.jpg" alt="">
-                <img src="images/chavez-8.jpg" alt="">
-                <img src="images/chavez-9.jpg" alt="">
-                <img src="images/chavez-10.jpg" alt="">
+                <div><img src="images/chavez-1.jpg" alt=""></div>
+                <div><img src="images/chavez-2.jpg" alt=""></div>
+                <div><img src="images/chavez-3.jpg" alt=""></div>
+                <div><img src="images/chavez-4.jpg" alt=""></div>
+                <div><img src="images/chavez-5.jpg" alt=""></div>
+                <div><img src="images/chavez-6.jpg" alt=""></div>
+                <div><img src="images/chavez-7.jpg" alt=""></div>
+                <div><img src="images/chavez-8.jpg" alt=""></div>
+                <div><img src="images/chavez-9.jpg" alt=""></div>
+                <div><img src="images/chavez-10.jpg" alt=""></div>
             </div>
         </header>
 
@@ -157,37 +157,28 @@
         </section>
 
 
-        <!-- JavaScript -->
+        <!-- JavaScripts -->
 
-        <!-- Libraries -->
-
+        <!-- jQuery -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 
-        <script src="js/foundation.min.js"></script>
+        <!-- Foundation JS -->
+        <script src="/js/foundation.min.js"></script>
         <script>
             $(document).foundation();
         </script>
 
-        <script src="js/jquery.slides.min.js"></script>
-
-        <!-- Script -->
+        <!-- Our JS -->
         <script src="js/script.js"></script>
 
+        <!-- Slick.js Slideshow -->
+        <script src="js/slick.min.js"></script>
         <script>
-            $('#slides').slidesjs({
-                navigation: {
-                    effect: "fade"
-                },
-                pagination: {
-                    active: false
-                },
-                play: {
-                    active: false,
-                    auto: true,
-                    interval: 7000,
-                    swap: true,
-                    effect: "fade"
-                }
+            $('#slides').slick({
+                autoplay: true,
+                autoplaySpeed: 2000,
+                fade: true,
+                cssEase: 'linear'
             });
         </script>
 
