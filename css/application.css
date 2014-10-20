@@ -110,12 +110,16 @@ section {
     /* TODO give each menu item some bottom margin */
 }
 
-/* TODO style the menu-item-name to be bold */
+/* TODO style the menu-item-dish to be bold */
 
-/* TODO style the menu-item-description to be italic and be in one line with the price. You don't need to use Foundation classes to do this, but if you want to try and see, go for it! */
+/* TODO style the menu-item-ingredients to be italic and be in one line with the price. You don't need to use Foundation classes to do this, but if you want to try and see, go for it! */
 
 /* TODO style the menu-item-price to be bold, 50% opacity, in line with the description but have some space to the left of it. */
 
+
+.menu-item-name-no-description {
+    display:inline;
+}
 
 /* ---------------------------------------------- */
 /* Social Media/Contact ------------------------- */

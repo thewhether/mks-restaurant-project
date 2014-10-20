@@ -136,11 +136,11 @@ section {
     line-height: 1.25em;
 }
 
-.menu-item-name {
+.menu-item-dish {
     font-weight: bold;
 }
 
-.menu-item-description {
+.menu-item-ingredients {
     font-style: italic;
     display: inline;
     margin: 0;
@@ -154,7 +154,7 @@ section {
 }
 
 .menu-item-name-no-description {
-    display:inline;
+    display: inline;
 }
 
 /* ---------------------------------------------- */
