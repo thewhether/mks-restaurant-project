@@ -40,23 +40,23 @@ $(function() {
     // TODO #2 Create a function, getMenu, to get the menu for a course
 
     // There are menus available for each course:
-    // - ./json/menu-breakfast.json
-    // - ./json/menu-lunch.json
-    // - ./json/menu-dinner.json
-    // - ./json/menu-dessert.json
-    // - ./json/menu-cocktails.json
-    // - ./json/menu-wine.json
+    // - http://mksrestaurantapi.herokuapp.com/menu-breakfast.json
+    // - http://mksrestaurantapi.herokuapp.com/menu-lunch.json
+    // - http://mksrestaurantapi.herokuapp.com/menu-dinner.json
+    // - http://mksrestaurantapi.herokuapp.com/menu-dessert.json
+    // - http://mksrestaurantapi.herokuapp.com/menu-cocktails.json
+    // - http://mksrestaurantapi.herokuapp.com/menu-wine.json
 
     // By setting a parameter of `course`, we can pass the course we want the
     // menu for into this function
 
     function getMenu( course ) {
-     // Use `$.getJSON` to get the menu for whatever menu heading was clicked
-     $.getJSON( './json/menu-' + course + '.json', function( json ) {
-       populateMenu( json );
-       // Once you're started with TODO #3, call the populateMenu function here
-       // and pass json as the argument
-     });
+      // Use `$.getJSON` to get the menu URL + whatever menu heading was clicked
+      $.getJSON( 'http://mksrestaurantapi.herokuapp.com/menu-' + course + '.json', function( json ) {
+        // Once you're started with TODO #3, call the populateMenu function here
+        // and pass json as the argument
+
+      });
     }
 
 
