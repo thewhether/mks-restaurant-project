@@ -61,7 +61,7 @@
                 </div>
 
                 <div class="map columns small-12 large-4 hide-for-small show-for-large">
-                    <a class="map" target="_blank" href="http://goo.gl/maps/qgnVW"><img src="images/map-small.png" alt="Map"></a>
+                    <a class="map" target="_blank" href="http://goo.gl/maps/qgnVW"><img src="images/map.png" alt="Map"></a>
                 </div>
 
                 <div class="hours columns small-12 large-4">
@@ -86,45 +86,45 @@
             <div class="row">
                 <h2>Menus</h2>
             </div>
-                
+
             <div class="row">
                 <!-- breakfast -->
-                <div id="menu-action-breakfast" class="menu-section columns small-12 medium-4 large-2 menu-action">
+                <div class="menu-section columns small-12 medium-4 large-2" id="breakfast">
                     <h3><a>Breakfast</a></h3>
                 </div>
-                
+
                 <!-- lunch -->
-                <div id="menu-action-lunch" class="menu-section columns small-12 medium-4 large-2 menu-action">
+                <div class="menu-section columns small-12 medium-4 large-2" id="lunch">
                     <h3><a>Lunch</a></h3>
                 </div>
 
                 <!-- dinner -->
-                <div id="menu-action-dinner" class="menu-section columns small-12 medium-4 large-2 menu-action is-active">
+                <div class="menu-section columns small-12 medium-4 large-2" id="dinner">
                     <h3><a>Dinner</a></h3>
                 </div>
-                
+
                 <!-- dessert -->
-                <div id="menu-action-dessert" class="menu-section columns small-12 medium-4 large-2 menu-action">
+                <div class="menu-section columns small-12 medium-4 large-2" id="dessert">
                     <h3><a>Dessert</a></h3>
                 </div>
-                
+
                 <!-- cocktails -->
-                <div id="menu-action-cocktails" class="menu-section columns small-12 medium-4 large-2 menu-action">
+                <div class="menu-section columns small-12 medium-4 large-2" id="cocktails">
                     <h3><a>Cocktails</a></h3>
                 </div>
 
                 <!-- wine -->
-                <div id="menu-action-wine" class="menu-section columns small-12 medium-4 large-2 menu-action">
+                <div class="menu-section columns small-12 medium-4 large-2" id="wine">
                     <h3><a>Wine</a></h3>
                 </div>
             </div>
 
             <div class="row">
                 <!-- dinner -->
-                <div id="menu-section-content" class="menu-section-content menu-dinner is-active">
+                <div id="menu-section-content" class="menu-section-content">
 
                 </div>
-                
+
 
             </div>
         </section>
@@ -151,7 +151,7 @@
                     <h5>Press Inquiries</h5>
                     <a href="mailto:press@chavezrestaurant.com">press@chavezrestaurant.com</a>
                 </div>
-                
+
             </div>
 
         </section>
@@ -172,6 +172,24 @@
 
         <!-- Script -->
         <script src="js/script.js"></script>
+
+        <script>
+            $('#slides').slidesjs({
+                navigation: {
+                    effect: "fade"
+                },
+                pagination: {
+                    active: false
+                },
+                play: {
+                    active: false,
+                    auto: true,
+                    interval: 7000,
+                    swap: true,
+                    effect: "fade"
+                }
+            });
+        </script>
 
     </body>
 </html>
