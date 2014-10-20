@@ -20,19 +20,19 @@ $(function() {
       // Prevent the default action of the event
       event.preventDefault();
 
-      // Assign the id of the clicked element to a variable named id
-      var id = $( this ).attr( 'id' );
+      // Assign the id of the clicked element (this) to a variable named id
+      var  = $( this );
 
       // Remove the class 'is-active' from all menu item headings
-      $( '.menu-section-item' ).removeClass( 'is-active' );
+      $( '' ).removeClass( '' );
 
-      // Add 'is-active' to this specific action that was clicked. is-active
+      // Add 'is-active' to this specific action that was clicked (this). is-active
       // provides the visual cue for what's active via CSS
-      $( this ).addClass( 'is-active' );
+      $( this ).addClass( '' );
 
       // Once you're started with TODO #2, call the getMenu function here,
       // passing id as the argument
-      getMenu( id );
+
     });
 
 
@@ -51,11 +51,11 @@ $(function() {
     // menu for into this function
 
     function getMenu( course ) {
-      // Use `$.getJSON` to get the menu for whatever menu heading was clicked
+      // Use `$.getJSON` to get the menu URL + whatever menu heading was clicked
       $.getJSON( 'http://mksrestaurantapi.herokuapp.com/menu-' + course + '.json', function( json ) {
-        populateMenu( json );
         // Once you're started with TODO #3, call the populateMenu function here
         // and pass json as the argument
+
       });
     }
 
@@ -66,15 +66,26 @@ $(function() {
     function populateMenu( json ) {
       html = '';
 
-      for( var i = 0; i < json.length; i++ ){
+      // start a for loop that iterates through json.length
+      // add json.length into this for loop code
+      for( var i = 0; i < ; i++ ){
+        // wrap each section in a menu-group div
         html += '<div class="menu-group columns small-12 medium-4">';
+        // append inside the menu-group div a h4 with the json section name in it
+        // all the content in this for loop will follow this same model:
+        // put the correct content in between the blank + + signs.
         html += '<h4>' + json[i].section + '</h4>';
 
+        // inside each menu-group section, start a for loop that
+        // prints out each menu-item div
         for( var j = 0; j < json[i].content.length; j++ ) {
+          // for each menu item in json[i].content, create a menu-item div
           html += '<div class="menu-item">';
-          html += '<div class="menu-item-dish">' + json[i].content[j].dish + '</div>';
-          html += '<p class="menu-item-ingredients">' + json[i].content[j].ingredients + '</p>';
-          html += '<div class="menu-item-price">' + json[i].content[j].price + '</div>';
+          // inside each menu-item div, create a div for dish, ingredients, and price
+          // add json[i]content[j].THING where THING is dish, ingredient, price.
+          html += '<div class="menu-item-dish">' + json[i].content[j]. + '</div>';
+          html += '<p class="menu-item-ingredients">' + json[i].content[j]. + '</p>';
+          html += '<div class="menu-item-price">' + json[i].content[j]. + '</div>';
           html += '</div>';
         }
 
