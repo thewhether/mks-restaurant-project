@@ -6,14 +6,11 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Google Fonts -->
-        <!-- TODO We're going to use the Google Font 'Bitter'. https://www.google.com/fonts#UsePlace:use/Collection:Bitter Link to it here -->
+        <link href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic' rel='stylesheet' type='text/css'>
 
         <!-- Foundation CSS -->
-        <!-- TODO link to foundation's normalize.css -->
-        <!-- TODO link to foundation's foundation.min.css -->
-
-        <!-- If you are using Foundation Sass, keep the head from their file. -->
+        <link rel="stylesheet" type="text/css" href="css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="css/foundation.min.css">
 
         <!-- Our CSS -->
         <link rel="stylesheet" href="css/application.css">
@@ -35,7 +32,18 @@
                 <h4>the new restaurant by shawn cirkiel<br />poolside at the radisson</h4>
             </div>
 
-            <div><img src="images/chavez-1.jpg" alt=""></div>
+            <div class="slides">
+                <div><img src="images/chavez-1.jpg" alt="Fish with bonito flakes"></div>
+                <div><img src="images/chavez-2.jpg" alt="Chavez Dining Room"></div>
+                <div><img src="images/chavez-3.jpg" alt="Poolside"></div>
+                <div><img src="images/chavez-4.jpg" alt="Soups in glasses"></div>
+                <div><img src="images/chavez-5.jpg" alt="Chavez Tabletop with Menu"></div>
+                <div><img src="images/chavez-6.jpg" alt="Salad"></div>
+                <div><img src="images/chavez-7.jpg" alt="Exterior"></div>
+                <div><img src="images/chavez-8.jpg" alt="Interior"></div>
+                <div><img src="images/chavez-9.jpg" alt="Dessert"></div>
+                <div><img src="images/chavez-10.jpg" alt="Congress Ave."></div>
+            </div>
             <!-- TODO there are ten images in the images folder. write a div with an image tag inside it for each of them. then wrap the images in a #slides div so that SlickJS knows how to find them -->
         </header>
 
@@ -149,11 +157,22 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 
         <!-- Our JS -->
-        <!-- TODO link to our script.js file -->
+        <script src="js/script.js"></script>
 
         <!-- Slick.js Slideshow -->
         <!-- TODO link to the slick.min.js file -->
-        <!-- TODO pass the div #slides into the .slick() function to make the slideshow work. you'll be able to tell if it works because the images will no longer be a stack; you'll only see the first one. -->
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="js/slick.min.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('.slides').slick({
+                    // setting-name: setting-value
+                });
+            });
+        </script>
+
         <!-- TODO by default this slideshow JS doesn't autoplay. can you add the following settings into the slick() function? autoplay: true, autoplaySpeed: 2000, fade: true, cssEase: 'linear'. Check out the http://kenwheeler.github.io/slick/ website for examples and how to's! -->
 
 

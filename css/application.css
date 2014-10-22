@@ -4,12 +4,12 @@
 
 body {
     margin: 0;
-    /* TODO use the Google Font 'Bitter' */
+    font-family: 'Bitter', serif;
     font-size: 100%;
 }
 
 div, h1, h2, h3, h4, h5, h6, p, ul, ol, a {
-    /* TODO because we are using Foundation, we have to override Foundation's default font family. Use the Google Font 'Bitter' here. */
+    font-family: 'Bitter', serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
